@@ -1,0 +1,30 @@
+package PriorityQueueAndBinaryHeap;
+
+public class MaxPQ {
+	
+	private Integer[] heap;
+	private int size;
+	
+	public MaxPQ(int capacity) {
+		heap = new Integer[capacity + 1];
+		size = 0;
+	}
+	
+	public int size() {
+		return size;
+	}
+	
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public static void main(String[] args) {
+		
+		MaxPQ pq = new MaxPQ(3);
+		
+		System.out.println(pq.size());
+		System.out.println(pq.isEmpty());
+		
+	}
+
+}

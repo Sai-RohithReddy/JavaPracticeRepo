@@ -1,0 +1,69 @@
+package SynchronizationUsage;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.Arrays;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.google.common.base.Objects;
+
+public class WaitsDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\WebDrivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);// create a implicit wait immediately after driver object.
+		// it will waith for max 3 sec as per declared and than throws error if any issue. It will be applicable globally. If the statement executed within 2 sec it will not wait for entire 5 sec..
+		String[] itemsNeeded = { "Cucumber", "Brocolli", "Beetroot" };
+
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		
+		//method call
+		WaitsDemo o = new WaitsDemo();// create a object and then call method.
+		o.addItems(driver, itemsNeeded);
+		/*
+		if we make method static then we can call method directly without creating Objects.
+		addItems(driver, itemsNeeded);
+		*/
+		
+		driver.findElement(By.cssSelector("img[alt='Cart']")).click();
+		//driver.findElement(By.cssSelector("//div[@class='cart-preview active']/div/button")).click();// or we can use text() here because here text is not getting changed its 'static' type
+		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
+		
+		
+		// here we navigate to another page so there will be some time difference. Use waits here.
+		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
+		driver.findElement(By.cssSelector("button.promoBtn")).click();
+		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
+		
+		// driver.quit();
+
+	}
+	//method..
+	public void addItems(WebDriver driver, String[] itemsNeeded) {
+		int count = 0;
+
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
+
+		for (int i = 0; i < products.size(); i++) {
+			String[] product = products.get(i).getText().split("-");
+			String formattedName = product[0].trim();
+
+			List<String> itemsNeededList = Arrays.asList(itemsNeeded);
+
+			if (itemsNeededList.contains(formattedName)) {
+				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+				count++;
+
+				if (count == itemsNeeded.length) // check count equals to itemsNeeded length and apply break.
+					break;
+			}
+		}
+	}
+
+}

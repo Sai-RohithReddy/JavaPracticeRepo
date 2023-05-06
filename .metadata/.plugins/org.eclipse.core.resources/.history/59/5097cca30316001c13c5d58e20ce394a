@@ -1,0 +1,57 @@
+package SynchronizationUsage;
+
+import java.util.List;
+import java.util.Arrays;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.google.common.base.Objects;
+
+public class WaitsDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\WebDrivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+
+		String[] itemsNeeded = { "Cucumber", "Brocolli", "Beetroot" };
+
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		
+		//method call
+		WaitsDemo o = new WaitsDemo();// create a object and then call method.
+		o.addItems(driver, itemsNeeded);
+		/*
+		if we make method static then we can call method directly without creating Objects.
+		addItems(driver, itemsNeeded);
+		*/
+		
+		// driver.quit();
+
+	}
+	//method..
+	public void addItems(WebDriver driver, String[] itemsNeeded) {
+		int count = 0;
+
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
+
+		for (int i = 0; i < products.size(); i++) {
+			String[] product = products.get(i).getText().split("-");
+			String formattedName = product[0].trim();
+
+			List<String> itemsNeededList = Arrays.asList(itemsNeeded);
+
+			if (itemsNeededList.contains(formattedName)) {
+				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+				count++;
+
+				if (count == itemsNeeded.length) // check count equals to itemsNeeded length and apply break.
+					break;
+			}
+		}
+	}
+
+}

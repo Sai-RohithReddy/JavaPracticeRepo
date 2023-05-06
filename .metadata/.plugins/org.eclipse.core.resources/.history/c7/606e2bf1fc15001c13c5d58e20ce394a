@@ -1,0 +1,57 @@
+// Amazon Question: How to write the code in generic so it supports the multiple data sets.
+package SynchronizationUsage;
+
+
+import java.util.List;
+import java.util.Arrays;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class WaitsDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver",  "D:\\WebDrivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		int count = 0;
+		String [] itemsNeeded = {"Cucumber", "Brocolli", "Beetroot"};
+		
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
+		
+		for(int i=0;i<products.size();i++) 
+		{
+			//String product = products.get(i).getText(); 
+			// format it to get actual vegetable name
+			// Brocolli - i Kg
+			String[] product = products.get(i).getText().split("-");
+			String formattedName = product[0].trim();
+			
+			// convert array into array list for easy search
+			List<String> itemsNeededList = Arrays.asList(itemsNeeded);
+			
+			// check whether name you extracted is present in arrayList or not.
+			if (itemsNeededList.contains(formattedName)) 
+			{
+				//driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();// dont use text() to find elements. because it may change.
+				//break;// here we can't use break statement because entire loop will break if the above statement executes once.
+				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+				count++;
+				//Thread.sleep(5000); //'it will slow your process' while using text() in finding elements use sleep to wait for some time to get ADD TO CART state from ADDED state.
+				
+				if (count == itemsNeeded.length) // check count equals to itemsNeeded length and apply break.
+					break;
+			}
+		}
+		
+		//driver.quit();
+
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Sorting.SquaresOfSortedArr.squareOfSortedArr(...)&apos; to &apos;sortedSqurares&apos;&#x0D;&#x0A;- Original project: &apos;Java_DSA&apos;&#x0D;&#x0A;- Original element: &apos;Sorting.SquaresOfSortedArr.squareOfSortedArr(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;Sorting.SquaresOfSortedArr.sortedSqurares(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;squareOfSortedArr&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;Sorting{SquaresOfSortedArr.java[SquaresOfSortedArr~squareOfSortedArr~\[I" name="sortedSqurares" references="true" stamp="1661504273325" version="1.0"/>
+</session>

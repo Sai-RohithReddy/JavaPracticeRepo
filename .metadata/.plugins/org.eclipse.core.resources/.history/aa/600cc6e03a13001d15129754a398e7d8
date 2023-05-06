@@ -1,0 +1,43 @@
+package BinaryTree;
+
+public class BinaryTreeImplementation {
+	
+	private TreeNode root;
+
+	private class TreeNode{
+		private TreeNode right;
+		private TreeNode left;
+		private int data;
+		
+		public TreeNode(int data) {
+			this.data = data;
+		}
+	}
+	
+//	public BinaryTreeImplementation() {
+//		right = null;
+//		left = null;
+//	}
+	
+	public void createBT() {
+		TreeNode first = new TreeNode(1);
+		TreeNode second = new TreeNode(2);
+		TreeNode third = new TreeNode(3);
+		TreeNode forth = new TreeNode(4);
+		TreeNode fifth = new TreeNode(5);
+		
+		root = first;
+		
+		first.left = second;
+		first.right = third;
+		
+		second.left = forth;
+		second.right = fifth;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

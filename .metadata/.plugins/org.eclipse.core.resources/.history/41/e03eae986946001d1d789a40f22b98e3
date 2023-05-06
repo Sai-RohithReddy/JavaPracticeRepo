@@ -1,0 +1,40 @@
+package AmazonATLAS;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Q3 {
+
+	public static void main(String[] args) {
+		int[] arr1 = {10, 12, 10, 11, 13, 17, 16, 15, 11};
+		int[] arr2 = {7, 3, 8, 6, 4, 6, 7, 8, 9, 7};
+		
+		System.out.println(Arrays.toString(solution(arr1)));
+		System.out.println(Arrays.toString(solution(arr2)));
+	}
+	public static int[] solution(int[] arr) {
+		int res[];
+		ArrayList<Integer> al = new ArrayList<>();
+		int currentCount;
+		
+		for (int i = 0; i < arr.length; i++) {
+			currentCount = 0;
+			for (int j = i + 1; j < arr.length - 1; j++) {
+				if (arr[i] == arr[j]) {
+					currentCount++;
+				}
+			}
+			if (currentCount > 1) {
+				al.add(arr[i]);
+			}
+		}
+		
+		res = new int[al.size()];
+		
+		for (int i = 0; i < al.size(); i++) {
+			res[i] = al.get(i);
+		}
+		
+		return res;
+	}
+}

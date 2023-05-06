@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;i&apos; in &apos;ArraysAndStrings._1_8_2.setZeros(...)&apos; to &apos;j&apos;&#x0D;&#x0A;- Original project: &apos;CrackingCodingInterview&apos;&#x0D;&#x0A;- Original element: &apos;ArraysAndStrings._1_8_2.setZeros(int[][]).i&apos;&#x0D;&#x0A;- Renamed element: &apos;i&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;i&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;ArraysAndStrings{_1_8_2.java[_1_8_2~setZeros~\[\[I@i!392!400!396!396!I!0!false" name="j" references="true" stamp="1674474315520" version="1.0"/>
+</session>

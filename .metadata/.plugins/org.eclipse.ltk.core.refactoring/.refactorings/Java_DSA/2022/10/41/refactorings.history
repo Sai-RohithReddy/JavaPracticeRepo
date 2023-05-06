@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Sorting.SortedMaxMinRearrange.rearrangeSort(...)&apos; to &apos;rearrangeSortEnhanced&apos;&#x0D;&#x0A;- Original project: &apos;Java_DSA&apos;&#x0D;&#x0A;- Original element: &apos;Sorting.SortedMaxMinRearrange.rearrangeSort(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;Sorting.SortedMaxMinRearrange.rearrangeSortEnhanced(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;rearrangeSort&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;Sorting{SortedMaxMinRearrange.java[SortedMaxMinRearrange~rearrangeSort~\[I" name="rearrangeSortEnhanced" references="true" stamp="1664725302359" version="1.0"/>
+</session>

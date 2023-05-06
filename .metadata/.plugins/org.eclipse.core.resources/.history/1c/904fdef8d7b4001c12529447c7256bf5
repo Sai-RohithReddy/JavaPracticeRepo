@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Loan Department" parallel="tests" thread-count="5"> <!-- parallel is used to run TC at a time -->
+<parameter name="URL" value="Selenium.com"/><!-- Suit level scope -->
+  <test thread-count="5" name="Personal loan">
+  	<parameter name="LoanURL" value="ICICI.com"/><!-- Test folder level scope, can't access out of the scope -->
+    <classes>
+      <class name="test.Demo1"/>
+      <class name="test.Demo2"/>
+      <class name="test.Demo4">
+      	<methods>
+  			<include name="APILoginCarLoan"/><!-- For running only particular TC in a module -->
+			<include name="AddParameters"/>  		
+  		</methods>
+      </class>
+      <class name="test.Demo5"/>
+    </classes>
+  </test> <!-- Test Module -->
+  <test name = "Car Loan">
+  <parameter name="UserNmae" value="User"/>
+  <parameter name="Password" value="1234"/>
+  <classes>
+	  <class name="test.Demo3">
+		  <methods>
+		  	<exclude name="Mobile.*"/><!-- For excluding particular TC in a module, by using regular expression we can exclude all methods starting with given name -->
+		  </methods>
+	  </class>
+	  </classes>
+  </test>
+</suite> <!-- Suite -->

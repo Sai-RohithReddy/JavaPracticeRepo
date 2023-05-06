@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;StaticSynchronization.java&apos; to &apos;Java_MultiThreading/src/Syncronization&apos;&#x0D;&#x0A;- Original project: &apos;Java_MultiThreading&apos;&#x0D;&#x0A;- Destination element: &apos;Java_MultiThreading/src/Syncronization&apos;&#x0D;&#x0A;- Original element: &apos;StaticSynchronization.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;Syncronization" element1="/src&lt;{StaticSynchronization.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1678900977502" units="1" version="1.0"/>
+</session>
